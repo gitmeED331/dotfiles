@@ -1,10 +1,10 @@
-import { Widget	} from "../../imports.js";
-const {	Window,	Box, CenterBox,	Button,	Icon } = Widget;
+import { Widget, Utils, Mpris, Hyprland } from "../../imports.js";
+const { Window, Box, CenterBox, Button, Icon, Label } = Widget;
 
 // Widgets
 import { Workspaces	} from "./workspaces.js";
 import { Title } from "./title.js";
-import { Media } from "./media.js";
+//import { Media } from "./media.js";
 import { PlayerWin } from "./player.js";
 import { SysInfo } from	"./sysinfo/sysinfo.js";
 import Tray from "./tray.js";
@@ -24,6 +24,27 @@ const Dash = ()	=> Button({
 			onClicked: () => App.toggleWindow("dashboard"),
 			child: Icon({ icon: 'alienarena'}),
 		});
+
+const Media = () => Button({
+	class_name: 'media',
+	onPrimaryClick: () => App.toggleWindow("PlayerWin"),
+	/*const player = Mpris.getPlayer()
+	if(!player) {
+		Hyprland.messageAsync('dispatch exec deezer')
+	}
+		else {
+			player.playPause()
+		} */
+	onSecondaryClickRelease: () => hyprland.messageAsync('dispatch exec anyrun'),
+	child: Label('-').hook(Mpris, self => {
+		if (Mpris.players[0]) {
+			const { track_title } = Mpris.players[0];
+			self.label = track_title.length > 60 ? `${track_title.substring(0, 60)}...` : track_title;
+		} else {
+			self.label = 'Nothing is playing';
+		}
+	}, 'player-changed'),
+});
 
 const Left = ()	=> Box({
 	hpack:	"start",
@@ -57,4 +78,3 @@ export const Bar = () => Widget.Window({
 		end_widget: Right(),
 	}),
 });
-
