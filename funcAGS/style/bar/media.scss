@@ -1,0 +1,38 @@
+.media {
+    background-color: #1e1e2e;
+    border-radius: 0rem 0rem 3rem 3rem;
+    border: 2px solid #11111b;
+    color: #cdd6f4;
+    font-weight: bold;
+    padding: 1px 20px;
+    &:hover {
+        color: cyan;
+        border: 2px solid #0000FF;
+    }
+}
+
+.next {
+    background-color: #2A3130;
+    border-radius: 0rem 0rem 30rem 30rem;
+    border: 2px solid #11111b;
+    color: #cdd6f4;
+    font-weight: bold;
+    padding: 1px 10px;
+    &:hover {
+        color: cyan;
+        border: 2px solid #0000FF;
+    }
+}
+
+.previous {
+    background-color: #2A3130;
+    border-radius: 0rem 0rem 30rem 30rem;
+    border: 2px solid #11111b;
+    color: #cdd6f4;
+    font-weight: bold;
+    padding: 1px 10px;
+    &:hover {
+        color: cyan;
+        border: 2px solid #0000FF;
+    }
+}

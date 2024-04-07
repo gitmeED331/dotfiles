@@ -1,0 +1,13 @@
+.title {
+    background: #1e1e2e;
+    border-radius: 0rem 0rem 3rem 3rem;
+    border: 2px solid #11111b;
+    color: white;
+    font-weight: bold;
+    margin-left: 10px;
+    padding: 0px 20px;
+    &:hover {
+        color: cyan;
+        border: 2px solid #0000FF;
+    }
+}

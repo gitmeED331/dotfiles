@@ -1,0 +1,15 @@
+.dashbtn {
+    background-color: #1e1e2e;
+    border-radius: 3rem 0rem 0rem 3rem;
+    border: 2px solid #11111b;
+    font-weight: bold;
+    font-size: 1.25rem;
+    margin-top: 0px;
+    margin-right: 0px;
+    margin-left: 5px;
+    padding: 0px 5px;
+    &:hover {
+        color: cyan;
+        border: 2px solid #0000FF;
+    };
+}

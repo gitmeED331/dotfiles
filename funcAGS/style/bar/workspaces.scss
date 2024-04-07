@@ -1,0 +1,26 @@
+.workspaces {
+    margin: 0px 3px 3px 0px;
+    & button {
+        background: #1e1e2e;
+        color: #FFFFFF;
+        border-radius: 0rem 0rem 3rem 3rem;
+        margin: 0px 3px;
+        min-height: 8px;
+        min-width: 14px;
+        transition: all 0.3s $materialStandard;
+        animation: medBlink 1s infinite;
+        &:hover {
+            border: 2px solid #0000FF;
+            color: #FFFE00;
+            font-weight: bold;
+            min-width: 18px;
+            }
+        &.focused {
+			border: 2px solid #7A2048;
+			background: #FF5733;
+			font-weight: bold;
+			min-width: 20px;
+		}
+    }
+}
+

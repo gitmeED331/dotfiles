@@ -1,0 +1,355 @@
+*:not(selection) {
+  all: unset;
+}
+
+.clock {
+  background-color: #1e1e2e;
+  border-radius: 0rem 0rem 3rem 3rem;
+  border: 2px solid #11111b;
+  color: #cdd6f4;
+  font-weight: bold;
+  padding: 1px 15px;
+}
+.clock:hover {
+  color: cyan;
+  border: 2px solid #0000FF;
+}
+
+.calendarWidget {
+  background-color: #1e1e2e;
+  border-radius: 3rem;
+  border: 2px solid #11111b;
+  padding: 10px;
+  font-size: 1.6rem;
+}
+.calendarWidget:selected {
+  color: #74c7ec;
+}
+
+.media {
+  background-color: #1e1e2e;
+  border-radius: 0rem 0rem 3rem 3rem;
+  border: 2px solid #11111b;
+  color: #cdd6f4;
+  font-weight: bold;
+  padding: 1px 20px;
+}
+.media:hover {
+  color: cyan;
+  border: 2px solid #0000FF;
+}
+
+.next {
+  background-color: #2A3130;
+  border-radius: 0rem 0rem 30rem 30rem;
+  border: 2px solid #11111b;
+  color: #cdd6f4;
+  font-weight: bold;
+  padding: 1px 10px;
+}
+.next:hover {
+  color: cyan;
+  border: 2px solid #0000FF;
+}
+
+.previous {
+  background-color: #2A3130;
+  border-radius: 0rem 0rem 30rem 30rem;
+  border: 2px solid #11111b;
+  color: #cdd6f4;
+  font-weight: bold;
+  padding: 1px 10px;
+}
+.previous:hover {
+  color: cyan;
+  border: 2px solid #0000FF;
+}
+
+.barNotification {
+  background-color: #1e1e2e;
+  border-radius: 2rem;
+  border: 2px solid #11111b;
+  color: #cdd6f4;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 1px 15px;
+}
+
+@keyframes lowBlink {
+  0% {
+    color: #f5c2e7;
+  }
+  50% {
+    color: #cdd6f4;
+  }
+  100% {
+    color: #f5c2e7;
+  }
+}
+.sysinfo {
+  background-color: #1e1e2e;
+  border-radius: 0rem 0rem 5rem 5rem;
+  border: 2px solid #11111b;
+  color: #cdd6f4;
+  font-weight: bold;
+  margin-right: 10px;
+  padding: 0px 10px;
+}
+
+.volume {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.volume:hover {
+  color: cyan;
+  border: 2px solid #0000FF;
+}
+
+.bluetoothindicator {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+
+.batIcon {
+  margin-left: 4px;
+  margin-right: 4px;
+}
+.batIcon.low {
+  animation: lowBlink 2s infinite;
+}
+
+.reloadconfig {
+  margin-left: 4px;
+}
+.reloadconfig:hover {
+  color: cyan;
+}
+
+.title {
+  background: #1e1e2e;
+  border-radius: 0rem 0rem 3rem 3rem;
+  border: 2px solid #11111b;
+  color: white;
+  font-weight: bold;
+  margin-left: 10px;
+  padding: 0px 20px;
+}
+.title:hover {
+  color: cyan;
+  border: 2px solid #0000FF;
+}
+
+.tray {
+  background-color: #1e1e2e;
+  border-radius: 0rem 0rem 3rem 3rem;
+  margin-right: 10px;
+  padding: 0px 8px;
+}
+.tray > * {
+  margin: 0 3px;
+  margin-right: 4px;
+  margin-left: 4px;
+  border: none;
+  background-color: transparent;
+  font-weight: bold;
+  padding: 1px 2px;
+}
+
+.systrayitem:hover {
+  background-color: #1e1e2e;
+  border-radius: 0rem 0rem 3rem 3rem;
+  border: 2px solid #0000FF;
+}
+
+menu {
+  background-color: #1e1e2e;
+}
+menu menuitem {
+  background-color: #1e1e2e;
+  border-radius: 15px;
+  border: 2px solid #11111b;
+  color: cyan;
+  margin: 1px;
+  padding: 5px;
+}
+menu menuitem:hover {
+  color: cyan;
+  border: 2px solid #0000FF;
+}
+
+.workspaces {
+  margin: 0px 3px 3px 0px;
+}
+.workspaces button {
+  background: #1e1e2e;
+  color: #FFFFFF;
+  border-radius: 0rem 0rem 3rem 3rem;
+  margin: 0px 3px;
+  min-height: 8px;
+  min-width: 14px;
+  transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
+  animation: medBlink 1s infinite;
+}
+.workspaces button:hover {
+  border: 2px solid #0000FF;
+  color: #FFFE00;
+  font-weight: bold;
+  min-width: 18px;
+}
+.workspaces button.focused {
+  border: 2px solid #7A2048;
+  background: #FF5733;
+  font-weight: bold;
+  min-width: 20px;
+}
+
+.dashbtn {
+  background-color: #1e1e2e;
+  border-radius: 3rem 0rem 0rem 3rem;
+  border: 2px solid #11111b;
+  font-weight: bold;
+  font-size: 1.25rem;
+  margin-top: 0px;
+  margin-right: 0px;
+  margin-left: 5px;
+  padding: 0px 5px;
+}
+.dashbtn:hover {
+  color: cyan;
+  border: 2px solid #0000FF;
+}
+
+.bar {
+  font-family: Liberation Mono Font;
+  color: #FF0000;
+}
+
+.Slider {
+  background: #1e1e2e;
+  border-radius: 15px;
+  border: 2px solid #11111b;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.sldLabel {
+  margin-bottom: 6px;
+}
+.sldIcon {
+  margin-right: 10px;
+}
+.sldSlider {
+  min-width: 300px;
+}
+.sldSlider slider {
+  background: none;
+}
+.sldSlider trough {
+  background: #FF0000;
+  border-radius: 24px;
+  min-height: 12px;
+}
+.sldSlider highlight {
+  background: #000FFF;
+  border-radius: 24px;
+  min-width: 16px;
+}
+
+.notificationList {
+  background-color: #1e1e2e;
+  border-radius: 15px;
+  border: 2px solid #11111b;
+  margin-bottom: 15px;
+  min-height: 500px;
+  padding: 10px;
+}
+
+.notificationEmpty {
+  color: #313244;
+  font-size: 7rem;
+}
+
+.notificationImage {
+  color: #cdd6f4;
+  font-size: 30px;
+}
+
+.notification {
+  background-color: #313244;
+  border-radius: 15px;
+  padding: 10px;
+}
+
+.notificationTitle {
+  color: #cdd6f4;
+}
+
+.notificationDescription {
+  color: #bac2de;
+}
+
+.quicktoggles {
+  background: #1e1e2e;
+  border-radius: 15px;
+  border: 2px solid #11111b;
+  margin-bottom: 5px;
+  min-width: 200px;
+  padding: 10px;
+}
+.quicktoggles:hover {
+  background: #313244;
+}
+
+.buttons {
+  margin-top: 10px;
+  font-size: 1.5rem;
+  border-radius: 50%;
+  padding: 10px 10px;
+}
+
+.bluetooth, .wifi {
+  background: #74c7ec;
+  border-radius: 24px;
+  min-width: 125px;
+  padding: 9px;
+}
+.bluetooth.off, .wifi.off {
+  background: #313244;
+}
+
+.wifi {
+  margin-right: 10px;
+}
+
+.wifiIcon, .bluetoothIcon {
+  margin-right: 6px;
+}
+
+.Icon {
+  background: #313244;
+  border-radius: 100%;
+  margin: 5px;
+  min-height: 24px;
+  min-width: 24px;
+}
+.Icon:hover {
+  background: #0FFE0E;
+  color: #FF0000;
+  font-size: 2rem;
+  margin: 2px;
+  padding: 2px;
+}
+
+.wifilist .wifi-group-list, .wifi-group, .netwidget {
+  background: #1e1e2e;
+  border-radius: 15px;
+  border: 2px solid #11111b;
+  margin-bottom: 10px;
+  padding: 8px;
+}
+
+.dashboard {
+  font-weight: bold;
+}
+
+/*# sourceMappingURL=style.css.map */

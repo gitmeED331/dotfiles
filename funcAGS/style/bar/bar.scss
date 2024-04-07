@@ -1,0 +1,14 @@
+@import "clock";
+@import "calendar";
+@import "media";
+@import "notification";
+@import "sysinfo";
+@import "title";
+@import "tray";
+@import "workspaces";
+@import "dashbtn";
+
+.bar {
+    font-family: $font;
+    color: $font-color;
+    }
