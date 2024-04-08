@@ -1,6 +1,5 @@
 .quicktoggles {
-    background: #1e1e2e;
-    border-radius: 15px;
+	background: linear-gradient(90deg, rgba(0,0,0,1) 0%, rgba(0,160,255,1) 50%, rgba(19,55,111,1) 100%);
     border: 2px solid #11111b;
     margin-bottom: 5px;
     min-width: 200px;
@@ -35,7 +34,7 @@
     }
 }
 .Icon {
-    background: #313244;
+    background-color: rgba(0,0,0,0.5);
     border-radius: 100%;
     margin: 5px;
     min-height: 24px;

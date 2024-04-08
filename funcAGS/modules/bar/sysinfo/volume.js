@@ -16,7 +16,7 @@ export const Dashvol = () =>  PopupWindow({
     child: 
         Box({
             vertical:true,
-            vexpand:false,
+            hexpand:false,
             children: [
                 VolumeSlider(),
             ]

@@ -50,9 +50,10 @@ function Player(player) {
         on_change: ({ value }) => player.position = value * player.length,
         setup: self => {
             const update = () => {
-                self.visible = player.length > 0
-                self.value = player.position / player.length
-            }
+				const { length, position } = player
+				self.visible = length > 0
+				self.value = length > 0 ? position / length : 0
+			}
             self.hook(player, update)
             self.hook(player, update, "position")
             self.poll(1000, update)
@@ -166,6 +167,8 @@ export const PlayerWin = () =>  PopupWindow({
 		Box({
             vertical:true,
             vexpand:true,
-            child: PlayerCom(),
+			hexpand:true,
+			hpack: 'center',
+            children: [ PlayerCom(), ],
 		}),
 });

@@ -3,7 +3,7 @@
 }
 
 .clock {
-  background-color: #1e1e2e;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0rem 0rem 3rem 3rem;
   border: 2px solid #11111b;
   color: #cdd6f4;
@@ -16,7 +16,7 @@
 }
 
 .calendarWidget {
-  background-color: #1e1e2e;
+  background: linear-gradient(45deg, rgb(19, 55, 111) 0%, rgb(0, 160, 255) 50%, rgb(0, 0, 0) 100%);
   border-radius: 3rem;
   border: 2px solid #11111b;
   padding: 10px;
@@ -27,7 +27,7 @@
 }
 
 .media {
-  background-color: #1e1e2e;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0rem 0rem 3rem 3rem;
   border: 2px solid #11111b;
   color: #cdd6f4;
@@ -87,7 +87,7 @@
   }
 }
 .sysinfo {
-  background-color: #1e1e2e;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0rem 0rem 5rem 5rem;
   border: 2px solid #11111b;
   color: #cdd6f4;
@@ -126,7 +126,7 @@
 }
 
 .title {
-  background: #1e1e2e;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0rem 0rem 3rem 3rem;
   border: 2px solid #11111b;
   color: white;
@@ -140,7 +140,7 @@
 }
 
 .tray {
-  background-color: #1e1e2e;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0rem 0rem 3rem 3rem;
   margin-right: 10px;
   padding: 0px 8px;
@@ -161,28 +161,26 @@
   border: 2px solid #0000FF;
 }
 
-menu {
-  background-color: #1e1e2e;
-}
 menu menuitem {
-  background-color: #1e1e2e;
+  background: linear-gradient(0deg, rgb(15, 155, 255) 0%, rgb(0, 0, 0) 45%, rgb(0, 0, 0) 65%, rgb(15, 155, 255) 100%);
   border-radius: 15px;
   border: 2px solid #11111b;
-  color: cyan;
+  color: #FF0000;
   margin: 1px;
   padding: 5px;
 }
 menu menuitem:hover {
-  color: cyan;
+  color: #FFF000;
   border: 2px solid #0000FF;
+  font-weight: bold;
 }
 
 .workspaces {
   margin: 0px 3px 3px 0px;
 }
 .workspaces button {
-  background: #1e1e2e;
-  color: #FFFFFF;
+  background-color: rgba(0, 0, 0, 0.5);
+  color: #00FFCC;
   border-radius: 0rem 0rem 3rem 3rem;
   margin: 0px 3px;
   min-height: 8px;
@@ -198,13 +196,13 @@ menu menuitem:hover {
 }
 .workspaces button.focused {
   border: 2px solid #7A2048;
-  background: #FF5733;
+  background: rgba(0, 149, 229, 0.8);
   font-weight: bold;
   min-width: 20px;
 }
 
 .dashbtn {
-  background-color: #1e1e2e;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 3rem 0rem 0rem 3rem;
   border: 2px solid #11111b;
   font-weight: bold;
@@ -222,10 +220,11 @@ menu menuitem:hover {
 .bar {
   font-family: Liberation Mono Font;
   color: #FF0000;
+  background: linear-gradient(180deg, rgb(19, 55, 111) 0%, rgb(0, 160, 255) 50%, rgb(0, 0, 0) 100%);
 }
 
 .Slider {
-  background: #1e1e2e;
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 160, 255) 50%, rgb(19, 55, 111) 100%);
   border-radius: 15px;
   border: 2px solid #11111b;
   margin-bottom: 10px;
@@ -245,18 +244,18 @@ menu menuitem:hover {
   background: none;
 }
 .sldSlider trough {
-  background: #FF0000;
+  background: linear-gradient(0deg, rgb(255, 0, 0) 0%, rgb(0, 0, 0) 54%, rgb(255, 0, 0) 100%);
   border-radius: 24px;
   min-height: 12px;
 }
 .sldSlider highlight {
-  background: #000FFF;
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(15, 155, 255) 54%, rgb(0, 0, 0) 100%);
   border-radius: 24px;
   min-width: 16px;
 }
 
 .notificationList {
-  background-color: #1e1e2e;
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 160, 255) 50%, rgb(19, 55, 111) 100%);
   border-radius: 15px;
   border: 2px solid #11111b;
   margin-bottom: 15px;
@@ -289,8 +288,7 @@ menu menuitem:hover {
 }
 
 .quicktoggles {
-  background: #1e1e2e;
-  border-radius: 15px;
+  background: linear-gradient(90deg, rgb(0, 0, 0) 0%, rgb(0, 160, 255) 50%, rgb(19, 55, 111) 100%);
   border: 2px solid #11111b;
   margin-bottom: 5px;
   min-width: 200px;
@@ -326,7 +324,7 @@ menu menuitem:hover {
 }
 
 .Icon {
-  background: #313244;
+  background-color: rgba(0, 0, 0, 0.5);
   border-radius: 100%;
   margin: 5px;
   min-height: 24px;

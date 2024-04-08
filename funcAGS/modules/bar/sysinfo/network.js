@@ -9,14 +9,13 @@ const { execAsync } = Utils;
 
 export const NetWidget = () => PopupWindow({
     name: "netwidget",
-    anchor: ["top"],
+    anchor: ["top", "right"],
     margins: [12, 12, 15],
     transition: "slide_down",
     transitionDuration: 150,
     child: 
         Box({
             vertical:true,
-            vexpand:true,
             children: [
                 WifiList(),
             ]
@@ -26,10 +25,10 @@ export const NetWidget = () => PopupWindow({
 const ap = Network;
 const Expander = Widget.subclass(Gtk.Expander);
 
-export const WifiBTN = () => Widget.Button({
+export const WifiBTN = () => Button({
 		class_name: "wifibtn",
 		on_primary_click: () => { App.toggleWindow("netwidget") },
-		on_primary_click_release: () => execAsync(`nmcli device wifi connect ${ap.bssid}`).catch(e => {
+		//on_primary_click_release: () => execAsync(`nmcli device wifi connect ${ap.bssid}`).catch(e => {
 /*		notify({
 			summary: "Network",
 			body: e,
@@ -37,7 +36,7 @@ export const WifiBTN = () => Widget.Button({
 			"Open network manager": () => execAsync("nm-connection-editor")
 			}
 		});*/
-		}).catch(e => console.error(e)),
+		//}).catch(e => console.error(e)),
 		//TODO: make it look better, maybe using pango?
 		tooltip_text: JSON.stringify(ap, null, 2),
 		child:  Widget.Icon({

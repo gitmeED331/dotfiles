@@ -9,19 +9,15 @@ const Slider = () =>
 		className: "sldSlider",
 		drawValue: false,
 		on_change: self => Brightness.screen_value = self.value,
-		value: Brightness.bind('screen-value'),
+		value: Brightness.bind('screen-value').as(n => n > 1 ? 1 : n),
 	});
 	
 const Icon = () =>
 	Widget.Label({
 		className: "sldIcon",
-		//label: Brightness.bind('screen-value').as(v => `${v}`),
 		setup: self => self.hook(Brightness, (self, screenValue) => {
-        // screenValue is the passed parameter from the 'screen-changed' signal
         const icons = ["󰃚", "󰃛", "󰃜", "󰃝", "󰃞", "󰃟", "󰃠"];
-        //self.label = screenValue ?? 0;
         self.label =`${icons[Math.floor((Brightness.screen_value * 100) / 15)]}`;
-
     }, 'screen-changed'),
 	});
 

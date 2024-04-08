@@ -48,11 +48,11 @@ const Media = () => Button({
 
 const Left = ()	=> Box({
 	hpack:	"start",
-	children: [Workspaces(), Title()],
+	children: [ Workspaces(), Title(), ],
 });
 const Center = () => Box({
 	hpack:	"center",
-	children: [ Media() ],
+	children: [ Media(), ],
 });
 const Right	= () =>	Box({
 	hpack:	"end",
@@ -68,12 +68,12 @@ export const Bar = () => Widget.Window({
 	name: "bar",
 	layer:	'top',
 	anchor: ["top", "left", "right"],
-	margins: [0, 0, 0,	5],
+	margins: [0, 0, 0,0],
 	exclusivity: "exclusive",
-	child:	CenterBox({
+	child: CenterBox({
 		className: "bar",
 		hexpand: true,
-		start_widget:	Left(),
+		start_widget: Left(),
 		center_widget: Center(),
 		end_widget: Right(),
 	}),

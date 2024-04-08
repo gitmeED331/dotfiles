@@ -9,16 +9,7 @@ const speakerSlider = (type = 'speaker') => Widget.Slider({
     hexpand: true,
     drawValue: false,
     onChange: ({ value }) => audio[type].volume = value,
-    value: audio[type].bind('volume'),
-    setup: (self) => {
-      self.hook(
-			Audio,
-			(self) => {
-				if (!Audio.speaker) return;
-				self.value = Audio.speaker.volume;
-			}
-		)
-    },
+    value: audio[type].bind('volume').as(n => n > 1 ? 1 : n)
 });
 
 const micSlider = (type = 'microphone') => Widget.Slider({
@@ -26,7 +17,7 @@ const micSlider = (type = 'microphone') => Widget.Slider({
     hexpand: true,
     drawValue: false,
     onChange: ({ value }) => audio[type].volume = value,
-    value: audio[type].bind('volume'),
+    value: audio[type].bind('volume').as(n => n > 1 ? 1 : n),
     setup: (self) => {
       self.hook(
 			Audio,

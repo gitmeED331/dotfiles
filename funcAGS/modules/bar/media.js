@@ -7,12 +7,6 @@ const mpris = await Service.import("mpris");
 const { Window, Box, CenterBox, Button, Icon, Label } = Widget;
 const { execAsync } = Utils;
 
-App.config({
-	windows: [
-		PlayerWin(),
-		],
-});
-
 /*export const Previous = () => Button({
 	class_name: 'previous',
 	child:
@@ -33,7 +27,7 @@ export const Next = () => Button({
 
 const MediaBTN = () => Button({
 	name: 'mediabtn',
-	on_primary_click: () =>  App.toggleWindow("PlayerWin"),
+	onPrimaryClick: () =>  App.toggleWindow("PlayerWin"),
 	/*const player = Mpris.getPlayer()
 	if(!player) {
 		Hyprland.messageAsync('dispatch exec deezer')

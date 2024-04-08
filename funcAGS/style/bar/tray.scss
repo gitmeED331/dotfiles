@@ -1,5 +1,5 @@
 .tray {
-  background-color: #1e1e2e;
+  background-color: rgba(0,0,0,0.5);
   border-radius: 0rem 0rem 3rem 3rem;
   margin-right: 10px;
   padding: 0px 8px;
@@ -18,17 +18,17 @@
     border: 2px solid #0000FF;
 }   
 menu {
-	background-color: #1e1e2e;
     menuitem {
-        background-color: #1e1e2e;
+        background: linear-gradient(0deg, rgba(15,155,255,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,1) 65%, rgba(15,155,255,1) 100%);
         border-radius: 15px;
         border: 2px solid #11111b;
-        color: cyan;
+        color: #FF0000;
         margin: 1px;
         padding: 5px;
         &:hover {
-            color: cyan;
+            color: #FFF000;
             border: 2px solid #0000FF;
+            font-weight: bold;
         };
     }
 }

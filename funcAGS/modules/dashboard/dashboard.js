@@ -9,11 +9,22 @@ const { Box } = Widget;
 const { execAsync } = Utils;
 
 const quickAccess = Box({
+	vertical: true,
+	hexpand: false,
+	hpack: 'center',
 	children: [
 		Box({
-			vexpand: true,
-			vpack: 'center',
-			hpack: 'start',
+			vertical: false,
+			hexpand: true,
+			hpack: 'center',
+			children: [
+			PowerIcon(),
+			]
+		}),
+		Box({
+			vertical: false,
+			hexpand: true,
+			hpack: 'center',
 			children: [
 				Enpass(),
 				KontactIcon(),
@@ -21,22 +32,14 @@ const quickAccess = Box({
 				TerminalIcon(),
 			]
 		}),
-        Box({
-			hexpand: true,
-			hpack: 'end',
-			vpack: 'center',
-			children: [
-				PowerIcon()
-			]
-			}),
     ]
 });
 	
 export const Dashboard = () =>  PopupWindow({
     name: "dashboard",
-    anchor: ["top","bottom", "right"],
+    anchor: ["top", "bottom", "right"],
     margins: [12, 12, 15],
-    transition: "slide_left",
+    transition: "slide_down",
     transitionDuration: 150,
     child: 
         Box({
