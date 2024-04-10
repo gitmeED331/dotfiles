@@ -5,7 +5,7 @@
 .clock {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0rem 0rem 3rem 3rem;
-  border: 2px solid #11111b;
+  border: 2px solid transparent;
   color: #cdd6f4;
   font-weight: bold;
   padding: 1px 15px;
@@ -27,42 +27,117 @@
 }
 
 .media {
-  background-color: rgba(0, 0, 0, 0.5);
-  border-radius: 0rem 0rem 3rem 3rem;
-  border: 2px solid #11111b;
   color: #cdd6f4;
+  background-color: rgba(0, 0, 0, 0.5);
   font-weight: bold;
-  padding: 1px 20px;
 }
 .media:hover {
   color: cyan;
   border: 2px solid #0000FF;
 }
 
-.next {
-  background-color: #2A3130;
-  border-radius: 0rem 0rem 30rem 30rem;
-  border: 2px solid #11111b;
-  color: #cdd6f4;
-  font-weight: bold;
-  padding: 1px 10px;
+.mediabtn {
+  margin: 0px 3px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border: 2px solid transparent;
+  padding: 0px 15px;
+  color: white;
+  border-radius: 0rem 0rem 3rem 3rem;
 }
-.next:hover {
+.mediabtn:hover {
   color: cyan;
   border: 2px solid #0000FF;
 }
 
-.previous {
-  background-color: #2A3130;
-  border-radius: 0rem 0rem 30rem 30rem;
+.player {
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(15, 155, 255) 54%, rgb(0, 0, 0) 100%);
+  padding: 10px;
+  min-width: 250px;
+  min-height: 100px;
+  border-radius: 1em;
+}
+
+.player .img {
+  background-size: 50px;
+  background-position: center;
+  border-radius: 5px;
+  margin-right: 1em;
+}
+
+.player .mtitle {
+  font-size: 1.2em;
+  padding: 0.25em;
+  border-radius: 3em;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.player .artist {
+  font-size: 1.15em;
+  color: cyan;
+}
+
+.player scale.position {
+  padding: 0;
+  margin-bottom: 0.3em;
+  padding: 1em;
+}
+
+.player scale.position trough {
+  min-height: 8px;
+  background: linear-gradient(0deg, rgb(255, 0, 0) 0%, rgb(0, 0, 0) 54%, rgb(255, 0, 0) 100%);
+}
+
+.player scale.position highlight {
+  background: linear-gradient(0deg, rgb(0, 0, 0) 0%, rgb(15, 155, 255) 54%, rgb(0, 0, 0) 100%);
+}
+
+.player scale.position slider {
+  all: unset;
+}
+
+.player button {
+  min-height: 1em;
+  min-width: 1em;
+}
+
+.player button.play-pause {
+  margin: 0em 1em;
+  padding: 0em 1em;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3rem;
   border: 2px solid #11111b;
   color: #cdd6f4;
   font-weight: bold;
-  padding: 1px 10px;
+}
+.player button.play-pause:hover {
+  color: #FFF000;
+  border: 2px solid #FFF000;
+}
+
+.next {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 0rem 3rem 3rem 0rem;
+  border: 2px solid #11111b;
+  color: #cdd6f4;
+  font-weight: bold;
+  padding: 0px 2px;
+}
+.next:hover {
+  color: #00FF00;
+  border: 2px solid #00FF00;
+}
+
+.previous {
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 3rem 0rem 0rem 3rem;
+  border: 2px solid #11111b;
+  color: #cdd6f4;
+  font-weight: bold;
+  padding: 0px 2px;
 }
 .previous:hover {
-  color: cyan;
-  border: 2px solid #0000FF;
+  color: #FF0000;
+  border: 2px solid #FF0000;
 }
 
 .barNotification {
@@ -89,7 +164,7 @@
 .sysinfo {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0rem 0rem 5rem 5rem;
-  border: 2px solid #11111b;
+  border: 2px solid transparent;
   color: #cdd6f4;
   font-weight: bold;
   margin-right: 10px;
@@ -128,7 +203,6 @@
 .title {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 0rem 0rem 3rem 3rem;
-  border: 2px solid #11111b;
   color: white;
   font-weight: bold;
   margin-left: 10px;
@@ -176,17 +250,17 @@ menu menuitem:hover {
 }
 
 .workspaces {
-  margin: 0px 3px 3px 0px;
+  margin: 0px 3px;
 }
 .workspaces button {
   background-color: rgba(0, 0, 0, 0.5);
   color: #00FFCC;
   border-radius: 0rem 0rem 3rem 3rem;
-  margin: 0px 3px;
+  margin: 0px 3px 0px 0px;
+  padding: 1px;
   min-height: 8px;
   min-width: 14px;
   transition: all 0.3s cubic-bezier(0.2, 0, 0, 1);
-  animation: medBlink 1s infinite;
 }
 .workspaces button:hover {
   border: 2px solid #0000FF;
@@ -196,15 +270,17 @@ menu menuitem:hover {
 }
 .workspaces button.focused {
   border: 2px solid #7A2048;
-  background: rgba(0, 149, 229, 0.8);
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 3rem 3rem 3rem 3rem;
   font-weight: bold;
+  color: #FF0000;
   min-width: 20px;
 }
 
 .dashbtn {
   background-color: rgba(0, 0, 0, 0.5);
   border-radius: 3rem 0rem 0rem 3rem;
-  border: 2px solid #11111b;
+  border: 2px solid transparent;
   font-weight: bold;
   font-size: 1.25rem;
   margin-top: 0px;

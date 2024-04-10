@@ -1,13 +1,15 @@
 import { Widget, Utils, Mpris, Hyprland } from "../../imports.js";
 import PopupWindow from "../../utils/popupWindow.js";
-import { PlayerWin } from "./player.js";
+import { Muppet } from "./player.js";
 
 const mpris = await Service.import("mpris");
 
-const { Window, Box, CenterBox, Button, Icon, Label } = Widget;
+const { Window, Box, CenterBox, Button, Icon, Label, EventBox } = Widget;
 const { execAsync } = Utils;
-
-/*export const Previous = () => Button({
+const player = Mpris.getPlayer();
+/*
+const Previous = () => Button({
+	hpack: 'start',
 	class_name: 'previous',
 	child:
 		Widget.Label({ 
@@ -16,41 +18,46 @@ const { execAsync } = Utils;
 	on_primary_click: () => Mpris.getPlayer('').previous(),
 });
 
-export const Next = () => Button({
+const Next = () => Button({
+	hpack: 'end',
 	class_name: 'next',
 	child:
 		Widget.Label({ 
 		label: '⇝'
 		}),
-	on_primary_click: () => Mpris.getPlayer('').next(),
-});*/
+	on_primary_click: ( ) => Mpris.getPlayer('').next(),
+});
+*/
 
-const MediaBTN = () => Button({
-	name: 'mediabtn',
-	onPrimaryClick: () =>  App.toggleWindow("PlayerWin"),
-	/*const player = Mpris.getPlayer()
-	if(!player) {
-		Hyprland.messageAsync('dispatch exec deezer')
-	}
-		else {
-			player.playPause()
-		}*/
-	onSecondaryClickRelease: () => {
-		hyprland.messageAsync('dispatch exec anyrun')
-		},
-	child: Label('-').hook(Mpris, self => {
-		if (Mpris.players[0]) {
-			const { track_title } = Mpris.players[0];
-			self.label = track_title.length > 60 ? `${track_title.substring(0, 60)}...` : track_title;
-		} else {
-			self.label = 'Nothing is playing';
-		}
-	}, 'player-changed'),
+export const Playwin = () =>  PopupWindow({
+    name: "playwin",
+    anchor: [ "top" ],
+    margins: [3,0,0,0],
+    layer: "overlay",
+    transition: "slide_down",
+    transitionDuration: 150,
+    child: Box({
+		vexpand: true,
+		hexpand: true,
+		className: "playwin",
+		child: Muppet(),
+	})
 });
 
-export const Media = () => Box({
-	class_name: 'media',
-	vertical:true,
-	vexpand:true,
-	child: MediaBTN(), 
+export const MediaBTN = ( ) => Box({
+	child: Button({
+		vpack: 'center',
+		className: 'mediabtn',
+		onPrimaryClick: ( ) => App.toggleWindow("playwin"),
+		onSecondaryClickRelease: ( ) => { Hyprland.messageAsync('dispatch exec deezer') },
+		child: Label('-').hook(Mpris, self => {
+			if (Mpris.players[0]) {
+				const { track_title } = Mpris.players[0];
+				self.label = track_title.length > 60 ? `${track_title.substring(0, 60)}...` : track_title;
+			} 
+			else {
+				self.label = 'Nothing is playing';
+			}
+		}, 'player-changed'),
+	})
 });

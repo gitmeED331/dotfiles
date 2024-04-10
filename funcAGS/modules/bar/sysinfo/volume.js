@@ -6,12 +6,12 @@ const audio = await Service.import('audio');
 const { Box, Button } = Widget;
 const { execAsync } = Utils;
 
-
 export const Dashvol = () =>  PopupWindow({
     name: "dashvol",
     anchor: ["top", "right"],
-    margins: [12, 12, 15],
+    margins: [3, 12],
     transition: "slide_down",
+    layer: "overlay",
     transitionDuration: 150,
     child: 
         Box({
@@ -23,13 +23,12 @@ export const Dashvol = () =>  PopupWindow({
         })
 });
 
-
 export const Volume = () => Box({
 	class_name: 'volume',
 	child:
 		Button({
-			on_primary_click: () => { App.toggleWindow("dashvol")},
-			on_secondary_click: () => { audio.speaker.is_muted = !audio.speaker.is_muted },
+			onPrimaryClick: () => { App.toggleWindow("dashvol")},
+			onSecondaryClick: () => { audio.speaker.is_muted = !audio.speaker.is_muted },
 			child:
 				Widget.Icon().hook(audio.speaker, self => {
 					const vol = audio.speaker.volume * 150;
@@ -42,6 +41,6 @@ export const Volume = () => Box({
 					].find(([threshold]) => threshold <= vol)?.[1];
 					self.icon = `audio-volume-${icon}-symbolic`;
 					self.tooltip_text = `Volume ${Math.floor(vol)}%`;
-				})
 		}),
+	}),
 });

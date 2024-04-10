@@ -1,10 +1,10 @@
 import { Widget, Audio } from "../../../imports.js";
-const { Box, Button } = Widget;
+const { Box, Button, Slider } = Widget;
 const { execAsync } = Utils;
 const audio = await Service.import('audio');
 
 /** @param {'speaker' | 'microphone'} type */
-const speakerSlider = (type = 'speaker') => Widget.Slider({
+const speakerSlider = ( type = "speaker" ) => Slider({
 	className: "sldSlider",
     hexpand: true,
     drawValue: false,
@@ -12,7 +12,7 @@ const speakerSlider = (type = 'speaker') => Widget.Slider({
     value: audio[type].bind('volume').as(n => n > 1 ? 1 : n)
 });
 
-const micSlider = (type = 'microphone') => Widget.Slider({
+const micSlider = (type = 'microphone') => Slider({
 	className: "sldSlider",
     hexpand: true,
     drawValue: false,
@@ -22,14 +22,14 @@ const micSlider = (type = 'microphone') => Widget.Slider({
       self.hook(
 			Audio,
 			(self) => {
-				if (!Audio.microphone) return;
-				self.value = Audio.microphone.volume;
+				if (!Audio[type]) return;
+				self.value = Audio[type].volume;
 			}
 		)
     },
 });
 
-const speakerIcon = () => Widget.Button({
+const speakerIcon = () => Button({
 	className: "sldIcon",
     on_clicked: () => audio.speaker.is_muted = !audio.speaker.is_muted,
     child: Widget.Icon().hook(audio.speaker, self => {
@@ -41,13 +41,12 @@ const speakerIcon = () => Widget.Button({
             [1, 'low'],
             [0, 'muted'],
         ].find(([threshold]) => threshold <= vol)?.[1];
-
         self.icon = `audio-volume-${icon}-symbolic`;
         self.tooltip_text = `Volume ${Math.floor(vol)}%`;
     }),
 });
 
-const micIcon = () => Widget.Button({
+const micIcon = () => Button({
 	className: "sldIcon",
     on_clicked: () => audio.microphone.is_muted = !audio.microphone.is_muted,
     child: Widget.Icon().hook(audio.microphone, self => {
@@ -62,6 +61,7 @@ const micIcon = () => Widget.Button({
         self.tooltip_text = `Microphone ${Math.floor(vol)}%`;
     }),
 });
+
 
 export const VolumeSlider = () => Box({
     className: "Slider",

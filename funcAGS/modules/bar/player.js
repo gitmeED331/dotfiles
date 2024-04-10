@@ -1,16 +1,18 @@
+const mpris = await Service.import("mpris");;
+const players = mpris.bind("players");
+
 import { Widget, Utils, Mpris, Hyprland } from "../../imports.js";
 import { lookUpIcon, execAsync } from "resource:///com/github/Aylur/ags/utils.js";
 import PopupWindow from "../../utils/popupWindow.js";
 import icons from "../icons/index.js";
-const mpris = await Service.import("mpris");
-const players = mpris.bind("players");
+
 const { Window, Box, CenterBox, Button, Icon, Label, Slider } = Widget;
 
-const FALLBACK_ICON = "audio-x-generic-symbolic";
-const PLAY_ICON = "media-playback-start-symbolic";
-const PAUSE_ICON = "media-playback-pause-symbolic";
-const PREV_ICON = "media-skip-backward-symbolic";
-const NEXT_ICON = "media-skip-forward-symbolic";
+const FALLBACK_ICON = "audio-x-generic-symbolic"
+const PLAY_ICON = "media-playback-start-symbolic"
+const PAUSE_ICON = "media-playback-pause-symbolic"
+const PREV_ICON = "media-skip-backward-symbolic"
+const NEXT_ICON = "media-skip-forward-symbolic"
 
 /** @param {number} length */
 function lengthStr(length) {
@@ -18,7 +20,7 @@ function lengthStr(length) {
     const sec = Math.floor(length % 60)
     const sec0 = sec < 10 ? "0" : ""
     return `${min}:${sec0}${sec}`
-};
+}
 
 /** @param {import('types/service/mpris').MprisPlayer} player */
 function Player(player) {
@@ -28,14 +30,14 @@ function Player(player) {
         css: player.bind("cover_path").transform(p => `
             background-image: url('${p}');
         `),
-    });
+    })
 
     const title = Label({
-        class_name: "title",
+        class_name: "mtitle",
         wrap: true,
         hpack: "start",
         label: player.bind("track_title"),
-    });
+    })
 
     const artist = Label({
         class_name: "artist",
@@ -48,17 +50,17 @@ function Player(player) {
         class_name: "position",
         draw_value: false,
         on_change: ({ value }) => player.position = value * player.length,
+        visible: player.bind("length").as(l => l > 0),
         setup: self => {
-            const update = () => {
-				const { length, position } = player
-				self.visible = length > 0
-				self.value = length > 0 ? position / length : 0
-			}
+            function update() {
+                const value = player.position / player.length
+                self.value = value > 0 ? value : 0
+            }
             self.hook(player, update)
             self.hook(player, update, "position")
             self.poll(1000, update)
         },
-    });
+    })
 
     const positionLabel = Label({
         class_name: "position",
@@ -72,14 +74,14 @@ function Player(player) {
             self.hook(player, update, "position")
             self.poll(1000, update)
         },
-    });
+    })
 
     const lengthLabel = Label({
         class_name: "length",
         hpack: "end",
         visible: player.bind("length").transform(l => l > 0),
         label: player.bind("length").transform(lengthStr),
-    });
+    })
 
     const icon = Icon({
         class_name: "icon",
@@ -91,7 +93,7 @@ function Player(player) {
             const name = `${entry}-symbolic`
             return Utils.lookUpIcon(name) ? name : FALLBACK_ICON
         }),
-    });
+    })
 
     const playPause = Button({
         class_name: "play-pause",
@@ -106,21 +108,23 @@ function Player(player) {
                 }
             }),
         }),
-    });
+    })
 
     const prev = Button({
+		className: "previous",
         on_clicked: () => player.previous(),
         visible: player.bind("can_go_prev"),
         child: Widget.Icon(PREV_ICON),
-    });
+    })
 
-    const next = Button({
+    const next = Widget.Button({
+		className: "next",
         on_clicked: () => player.next(),
         visible: player.bind("can_go_next"),
         child: Widget.Icon(NEXT_ICON),
-    });
+    })
 
-    return Box(
+    return Widget.Box(
         { class_name: "player" },
         img,
         Box(
@@ -129,15 +133,15 @@ function Player(player) {
                 hexpand: true,
             },
             Box([
-                title,
+                artist,
                 icon,
             ]),
-            artist,
+            title,
             Box({ vexpand: true }),
             positionSlider,
             Widget.CenterBox({
                 start_widget: positionLabel,
-                center_widget: Widget.Box([
+                center_widget: Box([
                     prev,
                     playPause,
                     next,
@@ -146,29 +150,13 @@ function Player(player) {
             }),
         ),
     )
-};
+}
 
-function PlayerCom() {
-    return Box({
+export function Muppet() {
+    return Widget.Box({
         vertical: true,
         css: "min-height: 2px; min-width: 2px;", // small hack to make it visible
         visible: players.as(p => p.length > 0),
         children: players.as(p => p.map(Player)),
     })
-};
-
-export const PlayerWin = () =>  PopupWindow({
-    name: "media",
-    anchor: [ "top" ],
-        margins: [12, 12, 15],
-    transition: "slide_down",
-    transitionDuration: 150,
-    child:
-		Box({
-            vertical:true,
-            vexpand:true,
-			hexpand:true,
-			hpack: 'center',
-            children: [ PlayerCom(), ],
-		}),
-});
+}

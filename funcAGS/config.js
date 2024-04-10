@@ -16,7 +16,7 @@ const applyScss = () => {
 		// directory that contains the scss files
 		`${App.configDir}/style`,
 	
-		Hyprland.messageAsync(`dispatch exec sass ${scss} ${css}`),
+		exec(`sass ${scss} ${css}`),
 		console.log("Scss compiled"),
 	
 		// main scss file
@@ -26,9 +26,6 @@ const applyScss = () => {
 		console.log("Compiled css applied"),
 	);
 };
-
-//applyScss();
-
 
 // Main config
 App.config({

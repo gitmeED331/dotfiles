@@ -40,6 +40,7 @@ export const Dashboard = () =>  PopupWindow({
     anchor: ["top", "bottom", "right"],
     margins: [12, 12, 15],
     transition: "slide_down",
+    layer: "overlay",
     transitionDuration: 150,
     child: 
         Box({
