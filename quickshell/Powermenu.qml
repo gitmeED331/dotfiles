@@ -3,6 +3,7 @@ import Quickshell
 import Quickshell.Io
 
 ShellRoot {
+    id: powermenu
 	WLogout {
 		LogoutButton {
 			command: "loginctl lock-screen"
