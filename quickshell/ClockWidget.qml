@@ -3,11 +3,14 @@ import QtQuick
 Item {
   // we no longer need time as an input
 
-  width: childrenRect.width
-  height: childrenRect.height
+  implicitWidth: childrenRect.width
+  implicitHeight: childrenRect.height
+
+  property var locale: Qt.locale()
+     property date currentTime: new Date()
 
   Text {
-    // directly access the time property from the Time singleton
-    text: Time.time
-  }
+    text: new Date().toLocaleString(locale, "ddd dd-MMM-yyyy HH:mm:ss")
+    }
 }
+

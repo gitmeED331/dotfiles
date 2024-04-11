@@ -7,22 +7,22 @@ import QtQuick
 
 // your singletons should always have Singleton as the type
 Singleton {
-  property string time;
+    property string time;
 
-  Process {
-    id: dateProc
-    command: ["date"]
-    running: true
+    Process {
+      id: dateProc
+      command: ["date"]
+      running: true
 
-    stdout: SplitParser {
-      onRead: data => time = data
+      stdout: SplitParser {
+        onRead: data => time = data
+      }
+    }
+
+    Timer {
+      interval: 1000
+      running: true
+      repeat: true
+      onTriggered: dateProc.running = true
     }
   }
-
-  Timer {
-    interval: 1000
-    running: true
-    repeat: true
-    onTriggered: dateProc.running = true
-  }
-}

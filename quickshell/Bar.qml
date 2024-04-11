@@ -1,8 +1,15 @@
 import Quickshell
-import Powerbtn.qml
+import QtQuick
+import QtQuick.Shapes
+import QtQuick.Effects
+import QtQuick.Controls
+import QtQuick.Controls.Material
+import QtQuick.Layouts
+
+
+import "./Powerbtn.qml"
 
 Scope {
-  // no more time object
 
   Variants {
     model: Quickshell.screens
@@ -10,6 +17,7 @@ Scope {
     PanelWindow {
       property var modelData
       screen: modelData
+      Material.background: Material.Blue
 
       anchors {
         bottom: true
@@ -17,13 +25,26 @@ Scope {
         right: true
       }
 
-      height: 20
-
-      ClockWidget {
-        anchors.centerIn: parent
-      }
-      
-      Powerbtn{screen: Quickshell.screens[0]}
+      height: 100
+//-----------------------
+RowLayout {
+    id: rightside
+    anchors {
+        //right: parent.right
+        centerIn: parent
+        verticalCenter: parent.verticalCenter
     }
+    Layout.rightMargin: 3
+
+    ClockWidget {
+        id: clockwidget
+        }
+
+    Powerbtn {
+        id: powerbtn
+    }
+} //RowLayout end
+//---------------
   }
+ }
 }

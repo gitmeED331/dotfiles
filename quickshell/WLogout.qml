@@ -84,7 +84,7 @@ Variants {
 							Image {
 								id: icon
 								anchors.centerIn: parent
-								source: `icons/${modelData.icon}.png`
+                                source: `./icons/${modelData.icon}.png`
 								width: parent.width * 0.25
 								height: parent.width * 0.25
 							}

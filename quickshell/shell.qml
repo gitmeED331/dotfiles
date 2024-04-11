@@ -34,6 +34,6 @@ ShellRoot {
 		}
 	}
 	
-	Bar {screen: Quickshell.screens[0]}
+	Bar {}
 	
 }
