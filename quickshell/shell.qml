@@ -4,13 +4,14 @@ import QtQuick.Particles
 import QtQuick.Effects
 import QtQuick.Shapes
 import QtQuick.Controls
+import QtQuick.Controls.Material
 import Quickshell
 import Quickshell.Io
 import Quickshell.Wayland
 
 ShellRoot {
 	id: root
-	
+
 	Socket {
 		// Create and connect a Socket to the hyprland event socket.
 		// https://wiki.hyprland.org/IPC/
@@ -28,7 +29,7 @@ ShellRoot {
 				if (match != null) {
 					// Filter out the right screen from the list and update the panel.
 					// match[1] will always be the monitor name captured by the regex.
-					panel.screen = Quickshell.screens.filter(screen => screen.name == match[1])[0];
+                    panel.screen = Quickshell.screens.filter(screen => screen.name === match[1])[0];
 				}
 			}
 		}
