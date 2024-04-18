@@ -32,3 +32,13 @@ menu {
         };
     }
 }
+
+tooltip {
+  box-shadow: rgba(0.0,155,0.5);
+}
+
+tooltip.background {
+	background: linear-gradient(0deg, rgba(15,155,255,1) 0%, rgba(0,0,0,1) 45%, rgba(0,0,0,1) 65%, rgba(15,155,255,1) 100%);
+	border-radius: 0.8rem;
+	color: yellow;
+}
