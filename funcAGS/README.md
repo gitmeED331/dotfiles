@@ -9,7 +9,7 @@ Elements of this project:
 - Workspaces & Overview:
   - Status: nearly complete
   - Issues:
-  - - Overview completion
+    - Overview completion
   - Overview (modifying from Aylur/Dotfiles):
     - Status: started, but non-functional
     - Issues: everything (files need modifying)
